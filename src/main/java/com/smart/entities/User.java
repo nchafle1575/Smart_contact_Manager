@@ -11,6 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 
 
@@ -21,14 +25,27 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
+	@NotBlank(message = "user Name can not be empty")
+	@Size(min= 2, max=20, message="min 2 and max 20 chracters are allowd!!!")
 	private String name;
+	
 	@Column(unique = true)
+	@Email(regexp="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
 	private String email;
-	private String passward;
+	
+	@NotBlank(message = " Password Can not be empty")
+	private String password;
+	
+	
 	private String role;
+	
+//	@AssertTrue(message="must agreed term and condition")
 	private boolean enable;
 	private String image;
+	
 	@Column(length =500)
+	@NotBlank(message = "Can not be empty")
 	private String about;
 	
 	@OneToMany(cascade = CascadeType.ALL)
@@ -38,13 +55,13 @@ public class User {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(int id, String name, String email, String passward, String role, boolean enable, String image,
+	public User(int id, String name, String email, String password, String role, boolean enable, String image,
 			String about) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		this.passward = passward;
+		this.password = password;
 		this.role = role;
 		this.enable = enable;
 		this.image = image;
@@ -68,11 +85,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPassward() {
-		return passward;
+	public String getPassword() {
+		return password;
 	}
-	public void setPassward(String passward) {
-		this.passward = passward;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getRole() {
 		return role;
@@ -106,7 +123,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", passward=" + passward + ", role=" + role
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
 				+ ", enable=" + enable + ", image=" + image + ", about=" + about + ", contacts=" + contacts + "]";
 	}
 	

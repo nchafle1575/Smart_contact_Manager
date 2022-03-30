@@ -38,13 +38,11 @@
 						<li class="nav-item"><a th:href="@{/}" class="nav-link"
 							aria-current="page" href="#">Home</a></li>
 
-						<li class="nav-item"><a th:href="@{/about/}" class="nav-link"
-							href="#">About</a></li>
 
-						<li class="nav-item"><a class="nav-link " href="#" th:href="@{/signin}">Login</a></li>
+						<li class="nav-item"><a class="nav-link " ><span th:text=${user.name}></span></a></li>
 
 						<li class="nav-item"><a class="nav-link "
-							th:href="@{/signup/}" href="#">Signup</a></li>
+							th:href="@{/logout}" href="#">Logout</a></li>
 
 					</ul>
 				</div>
@@ -56,8 +54,27 @@
 
 	<!--<h1>Hello, world!</h1>r -->
 
-	<div th:replace="${content}"></div>
-
+	<!-- this is side bar -->
+	<div class="sidebar">
+	
+	<a href="#" class="item">Home</a>
+	<a href="#" class="item">View Content</a>
+	<a href="#" class="item">Add contact</a>
+	<a href="#" class="item">Your profile</a>
+	<a href="#" class="item">settings</a>
+	<a href="#" class="item">Logout</a>
+	<div class="divder"></div>
+	
+	</div>
+	
+	<!-- end side bar -->
+	
+	<!-- content area -->
+	<div class="content">
+		<div th:replace="${content}"></div>
+	</div>
+	
+	<!-- end of content area -->
 
 
 
