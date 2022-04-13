@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>about page</title>
+</head>
+<body>
+	<section>
+		<div class="card">
+			<div class="card-body">
+				<h1 class="text-center">Add Contact</h1>
+				<div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-10 offset-md-1">
+
+							<form action="#" th:object="${contact}"
+								enctype="multipart/form-data" method="POST"
+								th:action="@{/user/process-contact}">
+
+								<!-- First name 
+									<div class="input-group">
+									  <div class="input-group-prepend">
+									  	<div class="input-group-text mr-3">
+									  	<i class="fa fa-plus"></i>
+									  	</div>
+									  	<input type="text" id="firstname" name="name" placeholder="Enter name here" class="form-control"/>
+									  </div>
+									</div>
+									-->
+
+								<!-- First name -->
+								<div class="col-auto">
+									<label class="sr-only" for="inlineFormInputGroup">Name</label>
+
+									<div class="input-group mb-2">
+										<div class="input-group-prepend">
+											<div class="input-group-text">@</div>
+										</div>
+										<input type="text" class="form-control" id="firstname"
+											placeholder="Enter your Name Here" name="name">
+									</div>
+								</div>
+
+								<!-- Nick name -->
+								<div class="col-auto">
+									<label class="sr-only" for="inlineFormInputGroup">Nick
+										Name</label>
+									<div class="input-group mb-2">
+										<div class="input-group-prepend">
+											<div class="input-group-text">@</div>
+										</div>
+										<input type="text" class="form-control" id="nickName"
+											placeholder="Enter your Nice name here" name="nickName">
+									</div>
+								</div>
+
+								<!-- phone number  -->
+								<div class="col-auto">
+									<label class="sr-only" for="inlineFormInputGroup">Phone
+										number</label>
+									<div class="input-group mb-2">
+										<div class="input-group-prepend">
+											<div class="input-group-text">@</div>
+										</div>
+										<input type=number class="form-control" id="phone"
+											placeholder="Enter your phone number" name="phone">
+									</div>
+								</div>
+
+								<!-- Email name -->
+								<div class="col-auto">
+									<label class="sr-only" for="inlineFormInputGroup">Email</label>
+									<div class="input-group mb-2">
+										<div class="input-group-prepend">
+											<div class="input-group-text">@</div>
+										</div>
+										<input type="text" class="form-control" id="email"
+											placeholder="Enter your Email here" name="email">
+									</div>
+								</div>
+
+
+
+								<!-- Descripation name -->
+
+								<div class="form-group green-border-focus">
+
+									<div class="input-group-prepend">
+										<div class="input-group-text">Description</div>
+									</div>
+									<textarea class="form-control" id="description" rows="5"
+										placeholder="Enter your description" name="description"></textarea>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

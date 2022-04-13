@@ -10,6 +10,7 @@ import com.smart.entities.User;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 
+ 
 	@Autowired
 	private UserRepository userRepository;
 	

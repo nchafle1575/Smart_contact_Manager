@@ -57,12 +57,12 @@
 	<!-- this is side bar -->
 	<div class="sidebar">
 	
-	<a href="#" class="item">Home</a>
+	<a href="#" th:href="@{/user/index}" class="item">Home</a>
 	<a href="#" class="item">View Content</a>
-	<a href="#" class="item">Add contact</a>
+	<a href="#"  th:href="@{/user/add-contact}" class="item">Add contact</a>
 	<a href="#" class="item">Your profile</a>
 	<a href="#" class="item">settings</a>
-	<a href="#" class="item">Logout</a>
+	<a href="#" th:href="@{/logout}" class="item">Logout</a>
 	<div class="divder"></div>
 	
 	</div>
