@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>about page</title>
+</head>
+<body>
+	<section>
+
+		<div class="card text-center" th:if="${contacts}">
+			<div class="card-header">Featured</div>
+			<div class="card-body">
+				<h5 th:text="${contacts.name}" class="card-title">
+					<span th:text="${contact.secondName}"></span>
+				</h5>
+
+				<img style="height: 200px; width: 200px" class="my_profile_picture"
+					alt="profile photo" src="" th:src="@{'/images/'+${contacts.image}}">
+
+				<p th:text="${'work: ' + contacts.work}"></p>
+				<h5>Phone number:</h5>
+				<p th:text="${contacts.phone}"></p>
+
+				<p th:text="${contacts.description}" class="card-text"></p>
+				<a href="#" class="btn btn-primary">Update</a> <a href="#"
+					class="btn btn-danger">Delete</a>
+			</div>
+			<div class="card-footer text-muted"></div>
+		</div>
+		<div>
+			<h1 th:usless="${contacts}">you not allowed here: please login
+			</h1>
+		</div>
+
+
+
+	</section>
+
+</body>
+</html>
